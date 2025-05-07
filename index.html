@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Itty Bitty Studios - Handmade Treasures</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1 style="font-family: 'Quicksand', cursive; font-size: 2rem;">Itty Bitty Studios</h1>
+    <input type="text" class="search-bar" placeholder="Search handmade products..." style="width: 300px; margin-left: 20px;" /> <nav></nav> <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="login.html">Login/Sign-Up</a>
+      <a href="cart.html">Cart</a>
+      <span>🔔</span>
+    </nav>
+  </header>
+
+  <main></main>
+    <section id="exclusive-sales">
+      <div class="section-title">🌸 Exclusive Sales</div>
+      <div class="product-grid">
+       
+        <div class="product-card">
+          <span class="sale-badge">EXCLUSIVE</span>
+          <img src="image/akshara 1.jpg" alt="Sakura whale">
+          <p>shiso - ₹399</p>
+        </div>
+        <div class="product-card">
+          <span class="sale-badge">EXCLUSIVE</span>
+          <img src="image/akshara img.jpg" alt="Sakura whale">
+          <p>Sakura whale- ₹399</p>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <section id="best-sellers">
+      <div class="section-title">🌼 Best Sellers</div>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="image/Eggie.jpg" alt="Eggie">
+          <p>Eggie - ₹599</p>
+        </div>
+        <div class="product-card">
+          <span class="sale-badge">SALE!</span>
+          <img src="image/dino.jpg" alt="Dino">
+          <p>HDino - ₹299</p>
+        </div>
+        <div class="product-card">
+          <img src="image/sakura whale.jpg" alt="Sakura whale">
+          <p>Sakura whale- ₹399</p>
+        </div>
+        <div class="product-card">
+          <img src="image/sakura whale.jpg" alt="Sakura whale">
+          <p>Sakura whale- ₹399</p>
+        </div>
+        <div class="product-card">
+          <img src="image/Eggie.jpg" alt="Sakura whale">
+          <p>Sakura whale- ₹399</p>
+      </div>
+    </section>
+
+    <section id="best-deals">
+      <div class="section-title">🎁 Best Deals & Discounts</div>
+      <div class="product-grid">
+        <div class="product-card">
+          <span class="sale-badge">SALE!</span>
+          <img src="image/mr. frog.jpg" alt="Mr.frog">
+          <p>Mr.frog - ₹499</p>
+        </div>
+        <div class="product-card">
+          <img src="image/sakura whale.jpg" alt="Sakura whale">
+          <p>Sakura whale- ₹399</p>
+        </div>
+        <div class="product-card">
+          <img src="image/sakura whale.jpg" alt="Sakura whale">
+          <p>Sakura whale- ₹399</p>
+        </div>
+        <div class="product-card">
+          <img src="image/sakura whale.jpg" alt="Sakura whale">
+          <p>Sakura whale- ₹399</p>
+        </div>
+        <div class="product-card">
+          <img src="image/sakura whale.jpg" alt="Sakura whale">
+          <p>Sakura whale- ₹399</p>
+        </div>
+          
+      </div>
+    </section>
+
+    <section id="all-products">
+      <div class="section-title">🛍 All Handmade Products</div>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="image/sakura whale.jpg" alt="Sakura whale">
+          <p>Sakura whale- ₹399</p>
+        </div>
+        <div class="product-card">
+          <img src="image/sakura whale.jpg" alt="Sakura whale">
+          <p>Sakura whale- ₹399</p>
+        </div>
+        <div class="product-card">
+          <img src="image/sakura whale.jpg" alt="Sakura whale">
+          <p>Sakura whale- ₹399</p>
+        </div>
+        <div class="product-card">
+          <img src="image/sakura whale.jpg" alt="Sakura whale">
+          <p>Sakura whale- ₹399</p>
+        </div>
+        <div class="product-card">
+          <img src="image/sakura whale.jpg" alt="Sakura whale">
+          <p>Sakura whale- ₹399</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>Contact us: 9562890922</div>
+    <a href="https://www.instagram.com/ittybitty.studios/?__pwa=1#" target="_blank">Instagram</a>
+    <div>UPI Payments accepted: aksharacj2002@oksbi</div>
+  </footer>
+</body>
+</html>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const productCards = document.querySelectorAll(".product-card");
+
+    productCards.forEach((card) => {
+      const addToCartButton = document.createElement("button");
+      addToCartButton.textContent = "Add to Cart";
+      addToCartButton.style.backgroundColor = "#77dd77"; // Pastel green
+      addToCartButton.style.color = "white";
+      addToCartButton.style.border = "none";
+      addToCartButton.style.padding = "10px";
+      addToCartButton.style.marginTop = "10px";
+      addToCartButton.style.cursor = "pointer";
+
+      addToCartButton.addEventListener("click", () => {
+        const productImage = card.querySelector("img").src;
+        const productName = card.querySelector("p").textContent;
+
+        const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        cartItems.push({ image: productImage, name: productName });
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+        alert("Item added to cart!");
+      });
+
+      card.appendChild(addToCartButton);
+    });
+  });
+</script>

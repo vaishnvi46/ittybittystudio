@@ -1,0 +1,64 @@
+<!DOCTYPE html><html><head><title>Cart</title></head><body><h1>Your Cart</h1></body></html>
+<script>
+    // Set page background color
+    document.body.style.backgroundColor = '#ffe4e1'; // Lighter pastel pink
+
+
+    // Center align "Your Cart" and apply a cute font
+    const heading = document.querySelector('h1');
+    heading.style.textAlign = 'center';
+    heading.style.fontFamily = '"Comic Sans MS", cursive, sans-serif';
+    heading.style.color = '#333';
+
+    // Retrieve cart items from localStorage
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Display cart items
+    const cartContainer = document.createElement('div');
+    cartContainer.style.textAlign = 'center'; // Center align cart items
+    cartItems.forEach(item => {
+        const itemElement = document.createElement('p');
+        itemElement.textContent = item;
+        itemElement.style.fontFamily = '"Comic Sans MS", cursive, sans-serif';
+        cartContainer.appendChild(itemElement);
+    });
+    document.body.appendChild(cartContainer);
+
+    // Create a container for the buttons
+    const buttonContainer = document.createElement('div');
+    buttonContainer.style.position = 'fixed';
+    buttonContainer.style.bottom = '20px';
+    buttonContainer.style.left = '50%';
+    buttonContainer.style.transform = 'translateX(-50%)';
+    buttonContainer.style.display = 'flex';
+    buttonContainer.style.gap = '10px';
+
+    // Add "Cancel" button
+    const cancelButton = document.createElement('button');
+    cancelButton.textContent = 'Cancel';
+    cancelButton.style.backgroundColor = 'lightcoral';
+    cancelButton.style.border = 'none';
+    cancelButton.style.padding = '10px 20px';
+    cancelButton.style.borderRadius = '5px';
+    cancelButton.style.cursor = 'pointer';
+    cancelButton.onclick = () => {
+        window.location.href = 'index.html'; // Redirect to index page
+    };
+    buttonContainer.appendChild(cancelButton);
+
+    // Add "Proceed to Payment" button
+    const paymentButton = document.createElement('button');
+    paymentButton.textContent = 'Proceed to Payment';
+    paymentButton.style.backgroundColor = 'lightgreen';
+    paymentButton.style.border = 'none';
+    paymentButton.style.padding = '10px 20px';
+    paymentButton.style.borderRadius = '5px';
+    paymentButton.style.cursor = 'pointer';
+    paymentButton.onclick = () => {
+        window.location.href = 'payment.html'; // Redirect to payment page
+    };
+    buttonContainer.appendChild(paymentButton);
+
+    // Append the button container to the body
+    document.body.appendChild(buttonContainer);
+</script>

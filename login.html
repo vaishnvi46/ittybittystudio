@@ -1,0 +1,61 @@
+<!DOCTYPE html><html><head><title>Login</title></head><body><h1>Login / Sign Up</h1></body></html>
+<style>
+    body {
+        background-color: #f8e8e8; /* Pastel pink */
+        font-family: Arial, sans-serif;
+    }
+
+    h1 {
+        color: #333;
+        text-align: center;
+    }
+
+    form {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        margin: auto;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input, textarea, button {
+        width: 100%;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button {
+        background-color: #a8d5ba; /* Pastel green */
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #91c7a1;
+    }
+</style>
+
+<form action="/submit" method="post">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="contact">Contact:</label><br>
+    <input type="tel" id="contact" name="contact" required><br><br>
+
+    <label for="address">Shipping Address:</label><br>
+    <textarea id="address" name="address" rows="4" cols="30" required></textarea><br><br>
+
+    <button type="submit">Submit</button>
+</form>
